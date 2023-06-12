@@ -3,13 +3,14 @@
 
 # Variables
 NUM_IMAGE=$1
-NAMES_FILE="names_file.txt"
+NAMES_FILE="dict.csv"
 IMAGES_FOLDER="imagenes"
 IMAGES_URL="https://source.unsplash.com/random/900x700/?person"
 NAMES_URL="https://raw.githubusercontent.com/fernandezpablo85/name_suggestions/master/assets/dict.csv"
 
 # Descarga el archivo de nombres
-curl -o $NAMES_FILE $NAMES_URL
+touch $NAMES_FILE
+wget -O $NAMES_FILE $NAMES_URL
 
 # Crea la carpeta de imagenes
 mkdir -p $IMAGES_FOLDER
