@@ -7,6 +7,7 @@ NAMES_FILE="dict.csv"
 IMAGES_FOLDER="imagenes"
 IMAGES_URL="https://source.unsplash.com/random/900x700/?person"
 NAMES_URL="https://raw.githubusercontent.com/fernandezpablo85/name_suggestions/master/assets/dict.csv"
+CHECKSUM_FILE="checksum.txt"
 
 # Descarga el archivo de nombres
 touch $NAMES_FILE
@@ -26,4 +27,5 @@ do
 done
 
 # Comprime las imágenes
-tar -czvf images.tar.gz $IMAGES_FOLDER/*
+zip -r "$IMAGES_FOLDER.zip" $IMAGES_FOLDER
+
