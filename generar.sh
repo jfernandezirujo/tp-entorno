@@ -5,8 +5,8 @@
 NUM_IMAGE=$1
 NAMES_FILE="dict.csv"
 IMAGES_FOLDER="imagenes"
-IMAGES_URL="https://source.unsplash.com/random/900x700/?person"
-NAMES_URL="https://raw.githubusercontent.com/fernandezpablo85/name_suggestions/master/assets/dict.csv"
+IMAGES_URL="https://thispersondoesnotexist.com/"
+NAMES_URL="https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/main/dict.csv"
 CHECKSUM_FILE="checksum.txt"
 
 # Descarga el archivo de nombres
@@ -27,5 +27,11 @@ do
 done
 
 # Comprime las imágenes
-zip -r "$IMAGES_FOLDER.zip" $IMAGES_FOLDER
+zip -r "$IMAGES_FOLDER.zip" "$IMAGES_FOLDER"/*
 
+# Crea archivo con cantidad de imagnes
+touch $CHECKSUM_FILE
+md5sum "$IMAGES_FOLDER.zip" > "$CHECKSUM_FILE"
+
+rm $NAMES_FILE
+rm -r $IMAGES_FOLDER
